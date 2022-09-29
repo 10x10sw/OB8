@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body {
+		background-color: black;
+		color: white;
+	}
+	table {
+		font-family: 'Handel Gothic', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		padding: 0 1em;
+	}
+	.panel {
+		background-image: linear-gradient(#050570 1px, transparent 1px);
+		background-size: 100% 1em;
+	}
+	thead {
+		font-weight: bold;
+		font-size: larger;
+	}
+	h1 {
+		background-color: black;
+		font-family: 'Handel Gothic', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		padding-left: 20px;
+	}
+	h2 {
+		background-color: black;
+		font-family: 'Handel Gothic', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		padding: 0.5em 20px;
+		border: solid white 1px;
+	}
+	tr {
+		vertical-align: top;
+	}
+	td {
+		font-weight: light;
+		text-align: center;
+		padding: .5em .5em 0;
+		width: 10em;
+	}
+	.label polyline {
+		fill: none;
+		stroke: white;
+		stroke-width: 1
+	}
+	.page2label {
+		color:#66aaff;
+		font-weight:light;
+		font-size: small;
+	}
+	.button rect {
+		fill: black;
+		stroke: #050570;
+		stroke-width: 1
+	}
+	.knob circle {
+		fill: black;
+		stroke: #050570;
+		stroke-width: 1
+	}
+	.knob polygon {
+		fill: white;
+	}
+	.knob td {
+		padding: 0
+	}
+	.button td {
+		padding: 0
+	}
+</style>
+</head>
+<body>
+<script>
+	function makeTriangleSVG() {
+		return '<svg class="label" height="1em" width="2em" viewBox="0 -1 20 12"><polyline <polyline points="0,10 10,0 20,10"/>/></svg>'
+	}
+	function makeSquareSVG() {
+		return '<svg class="label" height="1em" width="2em" viewBox="0 -1 20 12"><polyline points="0,10 0,0 10,0 10,10 20,10"/></svg>'
+	}
+	function makeThreeWaveSVG() {
+		return '<svg class="label" height="1em" width="8em" viewBox="10 -1 70 12">\n								<polyline points="0,20 20,0, 20,20"/>\n								<polyline points="30,10 40,0 50,10"/>\n								<polyline points="60,10 60,0 70,0 70,10 80,10"/>\n							</svg>'
+	}
+	function makeTableCell(cellText, cellClass, doubleWide = false) {
+		var cell = document.createElement('td');
+		cell.innerHTML = cellText;
+		cell.className = cellClass;
+		if (doubleWide) {
+			cell.colSpan = 2;
+		}
+		return cell;
+	}
+	function makeLabelCell(label, doubleWide = false) {
+		return makeTableCell(label, 'label', doubleWide);
+	}
+	function makeLabelRow(columnArray, doubleWide = false) {
+		var row = document.createElement('tr');
+		row.className = 'label';
+		columnArray.forEach(label => {
+			row.appendChild(makeLabelCell(label, doubleWide));
+		});
+		return row;
+	}
+	function makeLabelRow2(columnArray, doubleWide = false) {
+		var row = document.createElement('tr');
+		row.className = 'page2label';
+		columnArray.forEach(label => {
+			row.appendChild(makeLabelCell(label, doubleWide));
+		});
+		return row;
+	}
+	function makeKnobCell(value, doubleWide) {
+		// rotation 0 points straight up, 180 points straight down
+		// values from 0-63 should be -145 to +145
+		rotationValue = value * 290 / 62 - 145;
+		var cell = document.createElement('td');
+		cell.innerHTML = '<svg class="knob" height="4em" width="4em" viewBox="-1 -1 32 32">\n			<circle r="15" cx="15" cy="15"/>\n			<circle r="7" cx="15" cy="15"/>\n			<circle r="5" cx="15" cy="15"/>\n			<polygon points="15,0 18,8 12,8" transform="rotate('
+			+ rotationValue +
+			', 15, 15)"/></svg>';
+		if (doubleWide) {
+			cell.colSpan = 2;
+		}
+		return cell;
+	}
+	function makeKnobRow(valueArray, doubleWide = false) {
+		var row = document.createElement('tr');
+		row.className = 'knob';
+		valueArray.forEach(value => {
+			if (value == null) {
+				row.appendChild(makeLabelCell('', doubleWide));
+			}
+			else {
+				row.appendChild(makeKnobCell(value, doubleWide));
+			}
+		});
+		return row;
+	}
+	function makeButtonSVG(value) {
+		led = '';
+		if (value) {
+			led = '<circle style="fill:red" r="4" cx="15" cy="8"/>';
+		}
+		return '<svg class="button" height="3em" width="3em" viewBox="-1 -1 32 32">\n			<rect width="30" height="30"/>\n			<rect x="2" y="14" width="26" height="14"/>'
+			+ led + '</svg>';
+	}
+	function makeButtonCell(value) {
+		var cell = document.createElement('td');
+		cell.innerHTML = makeButtonSVG(value);
+		return cell;
+	}
+	function makeButtonRow(columnArray) {
+		var row = document.createElement('tr');
+		row.className = 'button';
+		columnArray.forEach(value => {
+			if (value == null) {
+				row.appendChild(makeLabelCell(''));
+			}
+			else if (value == 0 || value == 1) {
+				row.appendChild(makeButtonCell(value));
+			}
+			else if (Array.isArray(value)) {
+				var cell = document.createElement('td');
+				if (value[0] == 'triangle') {
+					cell.innerHTML = makeTriangleSVG() + makeButtonSVG(value[1]);
+				}
+				else if (value[0] == 'square') {
+					cell.innerHTML = makeSquareSVG() + makeButtonSVG(value[1]);
+				}
+				else if (value[0] == 's/h') {
+					cell.innerHTML = 'S/H' + makeButtonSVG(value[1]);
+				}
+				row.appendChild(cell);
+			}
+		});
+		return row;
+	}
+	function makeParameterGroupTable() {
+		return document.createElement('table');
+	}
+	function makeMasterTable(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow(['MASTER<br/>VOLUME', '', 'PROGRAM<br/>VOL/BAL']));
+		table.appendChild(makeKnobRow([0, null, program.volume]));
+		table.appendChild(makeLabelRow(['AUTO<br/>TUNE', '<br/>HOLD', 'CHORD/<br/>PAGE&nbsp;2']));
+		table.appendChild(makeButtonRow([0, 0, 0]));
+		table.appendChild(makeLabelRow(['', 'MASTER<br/>TUNE', '']));
+		table.appendChild(makeKnobRow([null, 31, null]));
+		return table;
+	}
+	function makeControlTable(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow(['<br/>PORTAMENTO']));
+		table.appendChild(makeKnobRow([program.portAmt]));
+		table.appendChild(makeLabelRow(['<br/>UNISON']));
+		table.appendChild(makeButtonRow([program.unison]));
+		table.appendChild(makeLabelRow(['<br/>OSC&nbsp;2&nbsp;DETUNE']));
+		table.appendChild(makeKnobRow([program.osc2Detune]));
+		return table;
+	}
+	function makeModulationTable(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow(['LFO<br/>RATE', 'MODULATION<br/>DEPTH 1', 'MODULATION<br/>DEPTH&nbsp;2']));
+		table.appendChild(makeKnobRow([program.lfoFreq, program.fmAmnt, program.pwmAmnt]));
+		table.appendChild(makeLabelRow(['WAVEFORM', 'OSC&nbsp;1&nbsp;FRQ', 'OSC&nbsp;1&nbsp;PWM']));
+		table.appendChild(makeButtonRow([['triangle', program.lfoWaveTri], program.osc1FM, program.osc1PWM]));
+		table.appendChild(makeLabelRow(['', 'OSC&nbsp;2&nbsp;FRQ', 'OSC&nbsp;2&nbsp;PWM']));
+		table.appendChild(makeButtonRow([['square', program.lfoWaveSqr], program.osc2FM, program.osc2PWM]));
+		table.appendChild(makeLabelRow(['', 'FILTER&nbsp;FRQ', 'VOLUME&nbsp;MOD']));
+		table.appendChild(makeButtonRow([['s/h', program.lfoWaveSnH], program.filterFM, program.vcaMod]));
+		return table;
+	}
+	function makeOscillatorsTable(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow(['OSC&nbsp;1<br/>FREQUENCY', '1&nbsp;AND&nbsp;2<br/>PULSE&nbsp;WIDTH', 'OSC&nbsp;2<br/>FREQUENCY'], true));
+		table.appendChild(makeKnobRow([program.vco1Freq, program.oscPWM, program.vco2Freq], true));
+		table.appendChild(makeLabelRow(['WAVEFORM<br/>' + makeThreeWaveSVG(), 'OSC&nbsp;2<br/>SYNC&nbsp;F-ENV', 'WAVEFORM<br/>' + makeThreeWaveSVG()], true));
+		table.appendChild(makeButtonRow([program.osc1WaveTri, program.osc1WaveSqr, program.sync, program.fEnv, program.osc2WaveTri, program.osc2WaveSqr]));
+		return table;
+	}
+	function makeFilterTable(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow(['<br/>FREQUENCY', '<br/>RESONANCE', '<br/>MODULATION'], true));
+		table.appendChild(makeKnobRow([program.vcfFreq, program.vcfRes, program.vcfMod], true));
+		table.appendChild(makeLabelRow(['OSC&nbsp;1<br/>ON', 'OSC&nbsp;2<br/>HALF', '<br/>FULL', 'NOISE<br/>ON', '<br/>4&nbsp;POLE', 'KBD<br/>TRACK']));
+		table.appendChild(makeButtonRow([program.osc2On, program.osc2Half, program.osc2On, program.noise, program.fourPole, program.kbdTrack]));
+		return table;
+	}
+	function makeEnvelopesTable(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow(['FILTER<br/>ATTACK', '<br/>DECAY', '<br/>SUSTAIN', '<br/>RELEASE']));
+		table.appendChild(makeKnobRow([program.vcfAtk, program.vcfDcy, program.vcfSus, program.vcfRel]));
+		table.appendChild(makeLabelRow(['VOLUME<br/>ATTACK', '<br/>DECAY', '<br/>SUSTAIN', '<br/>RELEASE']));
+		table.appendChild(makeKnobRow([program.vcaAtk, program.vcaDcy, program.vcaSus, program.vcaRel]));
+		return table;
+	}
+	
+	function makeMasterTable2(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeLabelRow2(['', '', '']));
+		return table;
+	}
+	function makeControlTable2(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeButtonRow([program.portBend]));
+		table.appendChild(makeLabelRow2(['PORTAMENTO<br/>BEND']));
+		table.appendChild(makeKnobRow([program.voiceDetune]));
+		table.appendChild(makeLabelRow2(['VOICE&nbsp;DETUNE']));
+		return table;
+	}
+	function makeModulationTable2(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeButtonRow([['triangle',  program.trigLfoWaveTri], program.fmQuant, program.pwmQuant]));
+		table.appendChild(makeLabelRow2(['', 'QUANTIZE&nbsp;1<br/>&nbsp;', 'QUANTIZE&nbsp;2<br/>&nbsp;']));
+		table.appendChild(makeButtonRow([['square', program.trigLfoWaveSqr], program.fmDlyInvert, program.pwmDlyInvert]));
+		table.appendChild(makeLabelRow2(['', 'INVERT&nbsp;1<br/>&nbsp;', 'INVERT&nbsp;2<br/>&nbsp;']));
+		table.appendChild(makeButtonRow([['s/h', program.trigLfoWaveSnH], program.lfoTrack, program.lfoRateDelay]));
+		table.appendChild(makeLabelRow2(['TRIG<br/>WAVEVORM', 'LFO&nbsp;TRACK', 'LFO&nbsp;ENV&nbsp;MOD']));
+		return table;
+	}
+	function makeOscillatorsTable2(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeButtonRow([program._90, program._180, program.vco1180, program.pw1180, program.portMatch, program.portQuant]));
+		table.appendChild(makeLabelRow2(['90º', '180º','FREQUENCY','PULSE&nbsp;WIDTH', 'MATCH', 'QUANTIZE']));
+		table.appendChild(makeLabelRow2(['LFO&nbsp;PHASE','OSC&nbsp;1&nbsp;LFO&nbsp;MOD&nbsp;INVERT', 'PORTAMENTO'],true));
+		return table;
+	}
+	function makeFilterTable2(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeButtonRow([program.legato, program.constPort, program.expoPort]));
+		table.appendChild(makeLabelRow2(['LEGATO', 'EQUAL&nbsp;TIME', 'EXPONENTIAL']));
+		table.appendChild(makeLabelRow2(['-','PORTAMENTO','-']));
+		return table;
+	}
+	function makeEnvelopesTable2(program) {
+		var table = makeParameterGroupTable();
+		table.appendChild(makeKnobRow([program.fmVibDelay, program.fmVibRaise, program.vcfSus, program.lfoTrigPoint]));
+		table.appendChild(makeLabelRow2(['DELAY MOD 1', 'ATTACK MOD 1', '', 'LFO TRIG POINT']));
+		table.appendChild(makeKnobRow([program.vcaAtk, program.pwmVibDelay, program.pwmVibRaise, program.pedalSustn]));
+		table.appendChild(makeLabelRow2(['DELAY MOD 2', 'ATTACK MOD 2', '', 'PEDAL RELEASE']));
+		return table;
+	}
+	function appendColumnWithTable(tableBodyRow, table) {
+		var tableBodyColumn = document.createElement('td');
+		tableBodyColumn.appendChild(table);
+		tableBodyRow.appendChild(tableBodyColumn);
+	}
+	function appendProgramHeading(program) {
+		var heading = document.createElement('h2');
+		heading.innerHTML = 'Program ' + program.programGroup + '-' + program.programNumber + ' (' + program.programIndex + ')';
+		document.body.appendChild(heading);
+	}
+	function appendProgramTable(program) {
+		var programTable = document.createElement('table');
+		programTable.className = 'panel';
+		document.body.appendChild(programTable);
+		var tableHead = document.createElement('thead');
+		programTable.appendChild(tableHead);
+		tableHead.appendChild(makeTableCell("MASTER", "category"));
+		tableHead.appendChild(makeTableCell("CONTROL", "category"));
+		tableHead.appendChild(makeTableCell("MODULATION", "category"));
+		tableHead.appendChild(makeTableCell("OSCILLATORS", "category"));
+		tableHead.appendChild(makeTableCell("FILTER", "category"));
+		tableHead.appendChild(makeTableCell("ENVELOPES", "category"));
+		var tableBody = document.createElement('tbody');
+		programTable.appendChild(tableBody);
+		var tableBodyRow = document.createElement('tr');
+		tableBody.appendChild(tableBodyRow);
+		appendColumnWithTable(tableBodyRow, makeMasterTable(program));
+		appendColumnWithTable(tableBodyRow, makeControlTable(program));
+		appendColumnWithTable(tableBodyRow, makeModulationTable(program));
+		appendColumnWithTable(tableBodyRow, makeOscillatorsTable(program));
+		appendColumnWithTable(tableBodyRow, makeFilterTable(program));
+		appendColumnWithTable(tableBodyRow, makeEnvelopesTable(program));
+		var tableBodyRow = document.createElement('tr');
+		tableBody.appendChild(tableBodyRow);
+		appendColumnWithTable(tableBodyRow, makeMasterTable2(program));
+		appendColumnWithTable(tableBodyRow, makeControlTable2(program));
+		appendColumnWithTable(tableBodyRow, makeModulationTable2(program));
+		appendColumnWithTable(tableBodyRow, makeOscillatorsTable2(program));
+		appendColumnWithTable(tableBodyRow, makeFilterTable2(program));
+		appendColumnWithTable(tableBodyRow, makeEnvelopesTable2(program));
+	}
+document.title = 'OB-8 Programs from ob8factory.syx'
+heading = document.createElement('h1')
+heading.innerHTML='OB-8 Programs from ob8factory.syx'
+document.body.appendChild(heading)
+program = {programIndex:1,programGroup:'A',programNumber:1,vcfRel:42,lfoWave:1,vcaRel:34,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:45,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:26,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:36,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:44,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:38,sync:0,osc1FM:1,fmAmnt:23,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:47,vcfFreq:12,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:59,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:15,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:22,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:2,programGroup:'A',programNumber:2,vcfRel:43,lfoWave:1,vcaRel:50,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:23,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:59,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:13,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:33,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:25,sync:0,osc1FM:0,fmAmnt:42,pwmAmnt:26,portAmt:48,volume:63,osc2Detune:21,vcfFreq:0,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:15,pedalSustn:0,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:44,lfoTrack:1,fmDlyInvert:0,pwmVibRaise:50,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:22,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:3,programGroup:'A',programNumber:3,vcfRel:52,lfoWave:1,vcaRel:39,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:52,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:51,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:41,osc2PWM:0,osc1PWM:0,vcfSus:28,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:8,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:43,vcaMod:0,fEnv:0,lfoFreq:42,sync:0,osc1FM:1,fmAmnt:25,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:50,vcfFreq:18,vco2Freq:0,vco2PW:43,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:53,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:4,programGroup:'A',programNumber:4,vcfRel:41,lfoWave:1,vcaRel:46,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:35,filterFM:0,osc2FM:0,vcaDcy:1,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:26,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:1,fEnv:0,lfoFreq:41,sync:0,osc1FM:0,fmAmnt:23,pwmAmnt:60,portAmt:0,volume:51,osc2Detune:42,vcfFreq:0,vco2Freq:24,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:16,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:12,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:5,programGroup:'A',programNumber:5,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:1,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:5,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:48,vcaMod:1,fEnv:0,lfoFreq:30,sync:0,osc1FM:1,fmAmnt:33,pwmAmnt:43,portAmt:0,volume:63,osc2Detune:30,vcfFreq:18,vco2Freq:0,vco2PW:48,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:6,programGroup:'A',programNumber:6,vcfRel:56,lfoWave:1,vcaRel:34,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:26,filterFM:0,osc2FM:1,vcaDcy:18,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:37,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:26,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:2,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:39,vcaMod:1,fEnv:1,lfoFreq:46,sync:0,osc1FM:0,fmAmnt:29,pwmAmnt:33,portAmt:33,volume:63,osc2Detune:32,vcfFreq:63,vco2Freq:24,vco2PW:3,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:34,pedalSustn:58,portBend:1,trigLfoWave:3,trigLfoWaveTri:1,trigLfoWaveSqr:1,trigLfoWaveSnH:0,fmVibRaise:44,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:21,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:7,programGroup:'A',programNumber:7,vcfRel:50,lfoWave:5,vcaRel:43,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:34,filterFM:1,osc2FM:0,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:0,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:19,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:31,vcaMod:0,fEnv:0,lfoFreq:51,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:8,portAmt:0,volume:63,osc2Detune:29,vcfFreq:39,vco2Freq:0,vco2PW:42,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:6,trigLfoWaveTri:0,trigLfoWaveSqr:1,trigLfoWaveSnH:1,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:8,programGroup:'A',programNumber:8,vcfRel:33,lfoWave:5,vcaRel:52,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:10,filterFM:1,osc2FM:0,vcaDcy:1,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:17,vcaMod:0,fEnv:0,lfoFreq:35,sync:0,osc1FM:0,fmAmnt:61,pwmAmnt:56,portAmt:53,volume:63,osc2Detune:42,vcfFreq:15,vco2Freq:0,vco2PW:17,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:1,trigLfoWave:6,trigLfoWaveTri:0,trigLfoWaveSqr:1,trigLfoWaveSnH:1,fmVibRaise:63,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:61,portQuant:0,portMatch:0,fmVibDelay:30,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:9,programGroup:'B',programNumber:1,vcfRel:29,lfoWave:5,vcaRel:31,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:35,filterFM:0,osc2FM:0,vcaDcy:6,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:27,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:3,osc2PWM:1,osc1PWM:1,vcfSus:9,noise:0,fourPole:1,vcaSus:48,osc2On:1,osc2Half:0,vcfMod:35,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:58,vcaMod:0,fEnv:1,lfoFreq:45,sync:1,osc1FM:1,fmAmnt:39,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:33,vcfFreq:0,vco2Freq:0,vco2PW:58,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:47,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:55,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:35,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:10,programGroup:'B',programNumber:2,vcfRel:7,lfoWave:1,vcaRel:10,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:29,filterFM:0,osc2FM:0,vcaDcy:49,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:11,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:35,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:41,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:47,vcfFreq:25,vco2Freq:0,vco2PW:52,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:41,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:11,programGroup:'B',programNumber:3,vcfRel:47,lfoWave:1,vcaRel:55,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:43,filterFM:0,osc2FM:0,vcaDcy:44,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:40,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:37,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:26,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:22,vcaMod:0,fEnv:0,lfoFreq:44,sync:0,osc1FM:1,fmAmnt:16,pwmAmnt:36,portAmt:0,volume:63,osc2Detune:47,vcfFreq:26,vco2Freq:12,vco2PW:22,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:12,programGroup:'B',programNumber:4,vcfRel:59,lfoWave:1,vcaRel:34,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:45,filterFM:0,osc2FM:0,vcaDcy:47,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:1,vcfSus:0,noise:0,fourPole:1,vcaSus:0,osc2On:0,osc2Half:1,vcfMod:29,osc1On:1,kbdTrack:1,vcfRes:26,pw1180:0,vco1180:0,oscPWM:27,vcaMod:0,fEnv:0,lfoFreq:21,sync:0,osc1FM:0,fmAmnt:26,pwmAmnt:53,portAmt:0,volume:63,osc2Detune:44,vcfFreq:0,vco2Freq:43,vco2PW:27,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:56,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:13,programGroup:'B',programNumber:5,vcfRel:47,lfoWave:1,vcaRel:38,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:31,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:29,osc1On:1,kbdTrack:1,vcfRes:28,pw1180:0,vco1180:0,oscPWM:55,vcaMod:0,fEnv:0,lfoFreq:17,sync:0,osc1FM:1,fmAmnt:8,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:33,vcfFreq:0,vco2Freq:0,vco2PW:55,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:60,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:40,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:14,programGroup:'B',programNumber:6,vcfRel:54,lfoWave:1,vcaRel:41,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:34,filterFM:0,osc2FM:0,vcaDcy:54,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:43,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:37,osc2PWM:1,osc1PWM:1,vcfSus:42,noise:0,fourPole:1,vcaSus:42,osc2On:1,osc2Half:0,vcfMod:6,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:1,vco1180:0,oscPWM:37,vcaMod:0,fEnv:0,lfoFreq:47,sync:0,osc1FM:1,fmAmnt:35,pwmAmnt:44,portAmt:0,volume:63,osc2Detune:46,vcfFreq:49,vco2Freq:12,vco2PW:37,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:53,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:15,programGroup:'B',programNumber:7,vcfRel:40,lfoWave:5,vcaRel:38,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:47,filterFM:0,osc2FM:1,vcaDcy:1,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:42,osc1On:1,kbdTrack:1,vcfRes:21,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:33,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:36,vcfFreq:0,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:63,pedalSustn:57,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:59,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:0,portQuant:1,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:16,programGroup:'B',programNumber:8,vcfRel:0,lfoWave:1,vcaRel:22,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:14,filterFM:0,osc2FM:0,vcaDcy:29,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:26,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:22,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:38,pw1180:0,vco1180:0,oscPWM:57,vcaMod:0,fEnv:0,lfoFreq:31,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:48,vcfFreq:14,vco2Freq:0,vco2PW:57,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:49,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:3,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:17,programGroup:'AB',programNumber:1,vcfRel:31,lfoWave:1,vcaRel:26,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:40,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:32,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:29,osc2PWM:0,osc1PWM:0,vcfSus:9,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:15,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:8,vcaMod:0,fEnv:0,lfoFreq:44,sync:1,osc1FM:1,fmAmnt:26,pwmAmnt:51,portAmt:0,volume:42,osc2Detune:31,vcfFreq:49,vco2Freq:0,vco2PW:8,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:51,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:18,programGroup:'AB',programNumber:2,vcfRel:17,lfoWave:1,vcaRel:20,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:32,filterFM:0,osc2FM:1,vcaDcy:53,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:11,noise:0,fourPole:0,vcaSus:15,osc2On:1,osc2Half:0,vcfMod:21,osc1On:1,kbdTrack:1,vcfRes:31,pw1180:0,vco1180:1,oscPWM:37,vcaMod:0,fEnv:0,lfoFreq:48,sync:0,osc1FM:1,fmAmnt:35,pwmAmnt:8,portAmt:25,volume:63,osc2Detune:33,vcfFreq:15,vco2Freq:0,vco2PW:37,vco1Freq:0,spare:0,legato:1,lfoTrigPoint:0,pedalSustn:47,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:28,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:16,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:1,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:19,programGroup:'AB',programNumber:3,vcfRel:33,lfoWave:1,vcaRel:36,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:6,filterFM:0,osc2FM:1,vcaDcy:63,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:18,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:40,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:18,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:29,vcaMod:0,fEnv:0,lfoFreq:44,sync:0,osc1FM:0,fmAmnt:30,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:46,vcfFreq:21,vco2Freq:0,vco2PW:29,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:48,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:20,programGroup:'AB',programNumber:4,vcfRel:0,lfoWave:1,vcaRel:25,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:52,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:0,osc2On:0,osc2Half:1,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:56,pw1180:0,vco1180:0,oscPWM:38,vcaMod:0,fEnv:0,lfoFreq:20,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:31,portAmt:0,volume:63,osc2Detune:33,vcfFreq:0,vco2Freq:35,vco2PW:38,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:54,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:21,programGroup:'AB',programNumber:5,vcfRel:0,lfoWave:1,vcaRel:7,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:1,vco1180:0,oscPWM:26,vcaMod:0,fEnv:0,lfoFreq:23,sync:0,osc1FM:0,fmAmnt:17,pwmAmnt:51,portAmt:0,volume:63,osc2Detune:31,vcfFreq:20,vco2Freq:12,vco2PW:26,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:22,programGroup:'AB',programNumber:6,vcfRel:35,lfoWave:1,vcaRel:35,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:35,filterFM:1,osc2FM:0,vcaDcy:36,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:26,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:24,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:4,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:55,vcaMod:0,fEnv:1,lfoFreq:12,sync:0,osc1FM:0,fmAmnt:47,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:41,vcfFreq:39,vco2Freq:12,vco2PW:55,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:57,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:23,programGroup:'AB',programNumber:7,vcfRel:57,lfoWave:3,vcaRel:60,unison:0,lfoWave:3,lfoWaveTri:1,lfoWaveSqr:1,lfoWaveSnH:0,vcfDcy:59,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:23,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:58,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:0,vco1180:1,oscPWM:44,vcaMod:0,fEnv:0,lfoFreq:11,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:8,portAmt:0,volume:47,osc2Detune:31,vcfFreq:22,vco2Freq:12,vco2PW:55,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:6,trigLfoWaveTri:0,trigLfoWaveSqr:1,trigLfoWaveSnH:1,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:1,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:24,programGroup:'AB',programNumber:8,vcfRel:55,lfoWave:1,vcaRel:57,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:44,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:35,sync:0,osc1FM:0,fmAmnt:43,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:47,vcfFreq:19,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:25,programGroup:'C',programNumber:1,vcfRel:26,lfoWave:1,vcaRel:24,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:24,filterFM:0,osc2FM:0,vcaDcy:63,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:24,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:34,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:51,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:50,sync:1,osc1FM:1,fmAmnt:8,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:36,vcfFreq:0,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:8,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:16,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:26,programGroup:'C',programNumber:2,vcfRel:57,lfoWave:6,vcaRel:14,unison:0,lfoWave:6,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:1,vcfDcy:44,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:11,noise:0,fourPole:1,vcaSus:47,osc2On:1,osc2Half:0,vcfMod:47,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:0,vco1180:0,oscPWM:54,vcaMod:0,fEnv:0,lfoFreq:21,sync:0,osc1FM:1,fmAmnt:21,pwmAmnt:31,portAmt:0,volume:63,osc2Detune:45,vcfFreq:0,vco2Freq:0,vco2PW:54,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:53,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:27,programGroup:'C',programNumber:3,vcfRel:0,lfoWave:1,vcaRel:40,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:43,sync:0,osc1FM:1,fmAmnt:24,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:47,vcfFreq:36,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:52,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:3,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:28,programGroup:'C',programNumber:4,vcfRel:46,lfoWave:1,vcaRel:42,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:51,filterFM:0,osc2FM:0,vcaDcy:33,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:46,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:13,noise:0,fourPole:0,vcaSus:38,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:43,sync:0,osc1FM:0,fmAmnt:24,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:42,vcfFreq:0,vco2Freq:24,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:2,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:29,programGroup:'C',programNumber:5,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:26,vcaMod:0,fEnv:0,lfoFreq:49,sync:0,osc1FM:1,fmAmnt:29,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:42,vcfFreq:63,vco2Freq:0,vco2PW:26,vco1Freq:24,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:30,programGroup:'C',programNumber:6,vcfRel:0,lfoWave:1,vcaRel:34,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:24,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:50,vcaMod:0,fEnv:0,lfoFreq:43,sync:1,osc1FM:1,fmAmnt:29,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:41,vcfFreq:25,vco2Freq:0,vco2PW:50,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:47,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:31,programGroup:'C',programNumber:7,vcfRel:18,lfoWave:1,vcaRel:17,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:30,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:1,osc1PWM:0,vcfSus:2,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:15,osc1On:1,kbdTrack:1,vcfRes:34,pw1180:0,vco1180:0,oscPWM:24,vcaMod:0,fEnv:0,lfoFreq:41,sync:0,osc1FM:0,fmAmnt:29,pwmAmnt:49,portAmt:0,volume:63,osc2Detune:46,vcfFreq:8,vco2Freq:0,vco2PW:24,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:50,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:32,programGroup:'C',programNumber:8,vcfRel:14,lfoWave:5,vcaRel:50,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:14,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:14,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:14,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:14,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:14,vcaMod:0,fEnv:1,lfoFreq:1,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:0,portAmt:63,volume:51,osc2Detune:0,vcfFreq:22,vco2Freq:0,vco2PW:4,vco1Freq:14,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:14,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:14,pwmDlyInvert:0,pwmQuant:1,voiceDetune:0,expoPort:0,constPort:0,bendAmount:30,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:33,programGroup:'AC',programNumber:1,vcfRel:40,lfoWave:1,vcaRel:38,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:36,filterFM:0,osc2FM:1,vcaDcy:37,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:22,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:21,osc2PWM:0,osc1PWM:0,vcfSus:48,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:25,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:13,vcaMod:0,fEnv:0,lfoFreq:44,sync:0,osc1FM:1,fmAmnt:26,pwmAmnt:45,portAmt:0,volume:53,osc2Detune:45,vcfFreq:47,vco2Freq:0,vco2PW:23,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:23,pedalSustn:54,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:53,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:25,expoPort:0,constPort:0,bendAmount:22,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:34,programGroup:'AC',programNumber:2,vcfRel:17,lfoWave:1,vcaRel:20,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:19,filterFM:0,osc2FM:1,vcaDcy:46,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:0,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:11,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:25,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:1,oscPWM:21,vcaMod:0,fEnv:0,lfoFreq:48,sync:0,osc1FM:1,fmAmnt:42,pwmAmnt:8,portAmt:15,volume:63,osc2Detune:33,vcfFreq:8,vco2Freq:0,vco2PW:21,vco1Freq:0,spare:0,legato:1,lfoTrigPoint:0,pedalSustn:52,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:28,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:16,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:1,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:35,programGroup:'AC',programNumber:3,vcfRel:52,lfoWave:1,vcaRel:43,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:29,filterFM:0,osc2FM:1,vcaDcy:43,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:9,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:37,osc2PWM:0,osc1PWM:0,vcfSus:26,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:23,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:35,sync:0,osc1FM:1,fmAmnt:4,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:48,vcfFreq:59,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:52,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:36,programGroup:'AC',programNumber:4,vcfRel:34,lfoWave:1,vcaRel:33,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:55,filterFM:0,osc2FM:0,vcaDcy:43,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:26,noise:0,fourPole:1,vcaSus:23,osc2On:1,osc2Half:0,vcfMod:35,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:1,fEnv:1,lfoFreq:47,sync:1,osc1FM:0,fmAmnt:5,pwmAmnt:56,portAmt:0,volume:63,osc2Detune:48,vcfFreq:0,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:61,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:37,programGroup:'AC',programNumber:5,vcfRel:39,lfoWave:1,vcaRel:26,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:36,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:35,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:29,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:53,portAmt:0,volume:63,osc2Detune:46,vcfFreq:23,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:38,programGroup:'AC',programNumber:6,vcfRel:0,lfoWave:1,vcaRel:22,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:30,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:20,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:5,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:33,vcaMod:0,fEnv:1,lfoFreq:47,sync:0,osc1FM:1,fmAmnt:38,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:0,vcfFreq:63,vco2Freq:0,vco2PW:33,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:55,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:39,programGroup:'AC',programNumber:7,vcfRel:27,lfoWave:1,vcaRel:41,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:25,filterFM:0,osc2FM:0,vcaDcy:36,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:14,noise:0,fourPole:1,vcaSus:11,osc2On:0,osc2Half:0,vcfMod:21,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:24,vcaMod:0,fEnv:0,lfoFreq:47,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:53,vco2Freq:0,vco2PW:24,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:57,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:40,programGroup:'AC',programNumber:8,vcfRel:28,lfoWave:1,vcaRel:38,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:40,filterFM:0,osc2FM:1,vcaDcy:43,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:31,osc2PWM:0,osc1PWM:0,vcfSus:25,noise:0,fourPole:0,vcaSus:21,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:63,sync:1,osc1FM:0,fmAmnt:39,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:18,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:59,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:41,programGroup:'BC',programNumber:1,vcfRel:30,lfoWave:1,vcaRel:16,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:32,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:23,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:7,osc2PWM:0,osc1PWM:0,vcfSus:13,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:36,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:47,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:50,vcfFreq:30,vco2Freq:12,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:42,programGroup:'BC',programNumber:2,vcfRel:40,lfoWave:1,vcaRel:31,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:45,filterFM:0,osc2FM:0,vcaDcy:41,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:29,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:59,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:33,vcaMod:0,fEnv:1,lfoFreq:47,sync:1,osc1FM:0,fmAmnt:0,pwmAmnt:5,portAmt:0,volume:63,osc2Detune:50,vcfFreq:0,vco2Freq:10,vco2PW:33,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:53,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:43,programGroup:'BC',programNumber:3,vcfRel:40,lfoWave:1,vcaRel:45,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:32,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:21,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:37,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:55,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:48,sync:0,osc1FM:1,fmAmnt:22,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:45,vcfFreq:0,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:2,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:44,programGroup:'BC',programNumber:4,vcfRel:59,lfoWave:1,vcaRel:24,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:35,filterFM:0,osc2FM:0,vcaDcy:53,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:1,vcfSus:0,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:51,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:27,vcaMod:0,fEnv:0,lfoFreq:21,sync:0,osc1FM:0,fmAmnt:26,pwmAmnt:61,portAmt:0,volume:63,osc2Detune:30,vcfFreq:3,vco2Freq:43,vco2PW:27,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:51,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:2,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:45,programGroup:'BC',programNumber:5,vcfRel:17,lfoWave:1,vcaRel:9,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:7,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:37,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:7,osc2PWM:1,osc1PWM:1,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:3,osc1On:1,kbdTrack:1,vcfRes:50,pw1180:1,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:33,sync:0,osc1FM:0,fmAmnt:22,pwmAmnt:53,portAmt:0,volume:63,osc2Detune:30,vcfFreq:16,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:46,programGroup:'BC',programNumber:6,vcfRel:0,lfoWave:1,vcaRel:28,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:63,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:25,osc2PWM:0,osc1PWM:0,vcfSus:10,noise:0,fourPole:1,vcaSus:0,osc2On:0,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:1,fEnv:0,lfoFreq:45,sync:0,osc1FM:0,fmAmnt:22,pwmAmnt:49,portAmt:0,volume:63,osc2Detune:33,vcfFreq:27,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:54,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:15,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:14,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:47,programGroup:'BC',programNumber:7,vcfRel:40,lfoWave:1,vcaRel:52,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:38,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:45,osc2On:1,osc2Half:0,vcfMod:36,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:45,sync:0,osc1FM:0,fmAmnt:22,pwmAmnt:49,portAmt:0,volume:63,osc2Detune:43,vcfFreq:32,vco2Freq:7,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:48,programGroup:'BC',programNumber:8,vcfRel:0,lfoWave:1,vcaRel:0,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:30,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:36,osc2On:1,osc2Half:0,vcfMod:48,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:45,sync:0,osc1FM:1,fmAmnt:31,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:44,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:48,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:17,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:16,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:49,programGroup:'ABC',programNumber:1,vcfRel:23,lfoWave:1,vcaRel:24,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:26,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:26,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:21,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:21,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:45,sync:0,osc1FM:1,fmAmnt:14,pwmAmnt:49,portAmt:0,volume:63,osc2Detune:40,vcfFreq:25,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:52,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:2,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:50,programGroup:'ABC',programNumber:2,vcfRel:0,lfoWave:1,vcaRel:45,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:39,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:30,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:41,sync:0,osc1FM:0,fmAmnt:14,pwmAmnt:49,portAmt:0,volume:63,osc2Detune:40,vcfFreq:63,vco2Freq:43,vco2PW:0,vco1Freq:48,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:32,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:3,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:51,programGroup:'ABC',programNumber:3,vcfRel:63,lfoWave:1,vcaRel:42,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:32,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:43,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:53,osc2PWM:1,osc1PWM:1,vcfSus:49,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:14,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:37,sync:0,osc1FM:1,fmAmnt:26,pwmAmnt:54,portAmt:0,volume:63,osc2Detune:23,vcfFreq:45,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:60,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:52,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:2,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:52,programGroup:'ABC',programNumber:4,vcfRel:46,lfoWave:1,vcaRel:21,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:45,filterFM:0,osc2FM:0,vcaDcy:49,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:44,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:6,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:25,vcaMod:0,fEnv:1,lfoFreq:19,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:1,vcfFreq:33,vco2Freq:0,vco2PW:25,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:49,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:1,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:53,programGroup:'ABC',programNumber:5,vcfRel:63,lfoWave:5,vcaRel:50,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:34,filterFM:1,osc2FM:1,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:19,osc1On:1,kbdTrack:1,vcfRes:58,pw1180:0,vco1180:0,oscPWM:29,vcaMod:0,fEnv:0,lfoFreq:23,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:53,portAmt:0,volume:63,osc2Detune:29,vcfFreq:39,vco2Freq:39,vco2PW:29,vco1Freq:46,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:3,trigLfoWaveTri:1,trigLfoWaveSqr:1,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:1,fmDlyInvert:0,pwmVibRaise:58,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:54,programGroup:'ABC',programNumber:6,vcfRel:35,lfoWave:1,vcaRel:35,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:46,filterFM:0,osc2FM:0,vcaDcy:47,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:43,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:41,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:0,vco1180:0,oscPWM:25,vcaMod:0,fEnv:1,lfoFreq:46,sync:0,osc1FM:1,fmAmnt:30,pwmAmnt:49,portAmt:0,volume:63,osc2Detune:51,vcfFreq:9,vco2Freq:0,vco2PW:25,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:55,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:55,programGroup:'ABC',programNumber:7,vcfRel:0,lfoWave:1,vcaRel:35,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:47,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:1,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:46,sync:0,osc1FM:0,fmAmnt:30,pwmAmnt:57,portAmt:0,volume:63,osc2Detune:51,vcfFreq:1,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:51,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:56,programGroup:'ABC',programNumber:8,vcfRel:6,lfoWave:1,vcaRel:8,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:37,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:4,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:45,osc1On:0,kbdTrack:1,vcfRes:35,pw1180:0,vco1180:0,oscPWM:8,vcaMod:0,fEnv:1,lfoFreq:17,sync:1,osc1FM:0,fmAmnt:63,pwmAmnt:51,portAmt:0,volume:48,osc2Detune:31,vcfFreq:52,vco2Freq:14,vco2PW:8,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:58,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:21,expoPort:0,constPort:0,bendAmount:24,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:57,programGroup:'D',programNumber:1,vcfRel:50,lfoWave:1,vcaRel:42,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:36,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:22,osc2PWM:1,osc1PWM:1,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:19,osc1On:1,kbdTrack:1,vcfRes:19,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:18,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:47,vcfFreq:3,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:61,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:49,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:24,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:58,programGroup:'D',programNumber:2,vcfRel:0,lfoWave:5,vcaRel:53,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:63,vcaMod:0,fEnv:0,lfoFreq:48,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:32,vcfFreq:45,vco2Freq:7,vco2PW:63,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:3,trigLfoWaveTri:1,trigLfoWaveSqr:1,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:1,portMatch:1,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:59,programGroup:'D',programNumber:3,vcfRel:48,lfoWave:1,vcaRel:54,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:40,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:25,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:46,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:54,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:44,sync:0,osc1FM:1,fmAmnt:15,pwmAmnt:0,portAmt:49,volume:44,osc2Detune:29,vcfFreq:8,vco2Freq:7,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:3,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:60,programGroup:'D',programNumber:4,vcfRel:0,lfoWave:1,vcaRel:28,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:16,filterFM:0,osc2FM:0,vcaDcy:37,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:9,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:24,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:27,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:56,vcfFreq:44,vco2Freq:0,vco2PW:27,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:43,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:16,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:61,programGroup:'D',programNumber:5,vcfRel:51,lfoWave:2,vcaRel:53,unison:0,lfoWave:2,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:0,vcfDcy:49,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:28,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:54,osc1On:1,kbdTrack:1,vcfRes:51,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:39,sync:0,osc1FM:1,fmAmnt:60,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:32,vcfFreq:0,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:62,programGroup:'D',programNumber:6,vcfRel:4,lfoWave:1,vcaRel:12,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:20,osc2PWM:0,osc1PWM:0,vcfSus:55,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:58,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:17,vcaMod:0,fEnv:0,lfoFreq:45,sync:0,osc1FM:1,fmAmnt:21,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:0,vco2Freq:0,vco2PW:17,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:61,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:63,programGroup:'D',programNumber:7,vcfRel:63,lfoWave:1,vcaRel:55,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:1,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:56,volume:47,osc2Detune:34,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:64,programGroup:'D',programNumber:8,vcfRel:59,lfoWave:1,vcaRel:54,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:57,filterFM:1,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:54,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:59,sync:0,osc1FM:0,fmAmnt:51,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:5,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:56,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:1,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:65,programGroup:'AD',programNumber:1,vcfRel:49,lfoWave:1,vcaRel:42,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:48,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:49,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:31,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:25,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:26,vcaMod:0,fEnv:0,lfoFreq:43,sync:0,osc1FM:1,fmAmnt:32,pwmAmnt:43,portAmt:0,volume:56,osc2Detune:45,vcfFreq:55,vco2Freq:0,vco2PW:26,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:49,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:39,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:13,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:25,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:66,programGroup:'AD',programNumber:2,vcfRel:38,lfoWave:1,vcaRel:45,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:30,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:19,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:58,vcaMod:0,fEnv:1,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:54,vco2Freq:0,vco2PW:58,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:47,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:67,programGroup:'AD',programNumber:3,vcfRel:38,lfoWave:1,vcaRel:34,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:34,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:27,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:34,osc2PWM:0,osc1PWM:0,vcfSus:28,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:51,sync:0,osc1FM:1,fmAmnt:28,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:49,vcfFreq:46,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:55,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:68,programGroup:'AD',programNumber:4,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:43,filterFM:0,osc2FM:1,vcaDcy:48,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:0,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:5,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:47,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:23,vcaMod:0,fEnv:0,lfoFreq:63,sync:0,osc1FM:0,fmAmnt:43,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:30,vcfFreq:33,vco2Freq:0,vco2PW:23,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:51,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:69,programGroup:'AD',programNumber:5,vcfRel:49,lfoWave:1,vcaRel:49,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:55,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:63,vcaMod:0,fEnv:0,lfoFreq:43,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:33,vcfFreq:8,vco2Freq:0,vco2PW:63,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:70,programGroup:'AD',programNumber:6,vcfRel:35,lfoWave:1,vcaRel:43,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:18,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:21,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:33,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:39,vcaMod:1,fEnv:0,lfoFreq:25,sync:0,osc1FM:0,fmAmnt:49,pwmAmnt:26,portAmt:0,volume:63,osc2Detune:32,vcfFreq:38,vco2Freq:36,vco2PW:3,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:34,pedalSustn:46,portBend:0,trigLfoWave:3,trigLfoWaveTri:1,trigLfoWaveSqr:1,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:1,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:71,programGroup:'AD',programNumber:7,vcfRel:23,lfoWave:1,vcaRel:32,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:38,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:5,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:6,vcaMod:0,fEnv:1,lfoFreq:43,sync:0,osc1FM:0,fmAmnt:22,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:33,vcfFreq:46,vco2Freq:0,vco2PW:6,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:51,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:72,programGroup:'AD',programNumber:8,vcfRel:0,lfoWave:1,vcaRel:63,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:34,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:1,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:1,vco1180:1,oscPWM:0,vcaMod:0,fEnv:1,lfoFreq:51,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:33,vcfFreq:2,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:73,programGroup:'BD',programNumber:1,vcfRel:49,lfoWave:4,vcaRel:52,unison:0,lfoWave:4,lfoWaveTri:0,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:49,filterFM:1,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:16,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:51,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:63,portAmt:55,volume:63,osc2Detune:33,vcfFreq:22,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:1,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:1,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:74,programGroup:'BD',programNumber:2,vcfRel:0,lfoWave:1,vcaRel:33,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:7,filterFM:0,osc2FM:0,vcaDcy:31,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:5,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:15,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:47,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:51,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:33,vcfFreq:25,vco2Freq:16,vco2PW:0,vco1Freq:24,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:52,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:75,programGroup:'BD',programNumber:3,vcfRel:63,lfoWave:1,vcaRel:42,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:32,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:43,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:53,osc2PWM:1,osc1PWM:1,vcfSus:49,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:17,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:31,sync:0,osc1FM:1,fmAmnt:26,pwmAmnt:54,portAmt:0,volume:63,osc2Detune:23,vcfFreq:7,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:62,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:52,lfoTrack:1,fmDlyInvert:0,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:2,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:76,programGroup:'BD',programNumber:4,vcfRel:27,lfoWave:1,vcaRel:28,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:41,filterFM:0,osc2FM:0,vcaDcy:40,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:30,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:28,osc1On:1,kbdTrack:0,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:1,lfoFreq:0,sync:1,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:40,vcfFreq:26,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:56,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:77,programGroup:'BD',programNumber:5,vcfRel:41,lfoWave:1,vcaRel:56,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:50,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:62,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:1,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:22,sync:0,osc1FM:0,fmAmnt:3,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:41,vcfFreq:8,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:78,programGroup:'BD',programNumber:6,vcfRel:37,lfoWave:1,vcaRel:46,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:25,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:9,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:15,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:1,fEnv:0,lfoFreq:49,sync:0,osc1FM:0,fmAmnt:49,pwmAmnt:59,portAmt:0,volume:63,osc2Detune:33,vcfFreq:40,vco2Freq:24,vco2PW:0,vco1Freq:24,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:79,programGroup:'BD',programNumber:7,vcfRel:30,lfoWave:1,vcaRel:18,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:25,filterFM:0,osc2FM:0,vcaDcy:46,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:30,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:11,noise:0,fourPole:1,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:31,osc1On:0,kbdTrack:0,vcfRes:63,pw1180:0,vco1180:0,oscPWM:13,vcaMod:0,fEnv:1,lfoFreq:42,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:56,portAmt:0,volume:63,osc2Detune:33,vcfFreq:26,vco2Freq:29,vco2PW:13,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:80,programGroup:'BD',programNumber:8,vcfRel:59,lfoWave:1,vcaRel:63,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:63,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:43,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:0,vcfRes:48,pw1180:0,vco1180:0,oscPWM:41,vcaMod:1,fEnv:0,lfoFreq:14,sync:0,osc1FM:0,fmAmnt:35,pwmAmnt:63,portAmt:0,volume:32,osc2Detune:32,vcfFreq:0,vco2Freq:0,vco2PW:41,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:63,expoPort:0,constPort:0,bendAmount:48,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:81,programGroup:'ABD',programNumber:1,vcfRel:37,lfoWave:2,vcaRel:31,unison:0,lfoWave:2,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:0,vcfDcy:16,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:49,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:1,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:1,lfoFreq:25,sync:1,osc1FM:0,fmAmnt:62,pwmAmnt:56,portAmt:0,volume:63,osc2Detune:32,vcfFreq:58,vco2Freq:24,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:27,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:82,programGroup:'ABD',programNumber:2,vcfRel:63,lfoWave:1,vcaRel:46,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:43,filterFM:0,osc2FM:0,vcaDcy:18,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:44,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:1,lfoFreq:34,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:46,vcfFreq:44,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:56,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:83,programGroup:'ABD',programNumber:3,vcfRel:38,lfoWave:1,vcaRel:31,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:49,filterFM:1,osc2FM:0,vcaDcy:47,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:19,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:35,osc2PWM:0,osc1PWM:0,vcfSus:16,noise:0,fourPole:1,vcaSus:25,osc2On:1,osc2Half:0,vcfMod:49,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:44,sync:0,osc1FM:1,fmAmnt:11,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:32,vcfFreq:18,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:48,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:84,programGroup:'ABD',programNumber:4,vcfRel:63,lfoWave:1,vcaRel:46,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:26,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:18,osc2PWM:1,osc1PWM:1,vcfSus:39,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:21,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:28,vcaMod:0,fEnv:0,lfoFreq:41,sync:0,osc1FM:0,fmAmnt:40,pwmAmnt:57,portAmt:0,volume:63,osc2Detune:46,vcfFreq:9,vco2Freq:0,vco2PW:28,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:1,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:85,programGroup:'ABD',programNumber:5,vcfRel:63,lfoWave:1,vcaRel:63,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:25,filterFM:1,osc2FM:0,vcaDcy:36,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:20,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:21,osc1On:1,kbdTrack:1,vcfRes:47,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:2,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:41,vcfFreq:53,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:86,programGroup:'ABD',programNumber:6,vcfRel:0,lfoWave:1,vcaRel:41,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:36,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:39,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:0,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:47,vcaMod:0,fEnv:1,lfoFreq:49,sync:0,osc1FM:1,fmAmnt:10,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:24,vco2Freq:0,vco2PW:47,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:58,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:87,programGroup:'ABD',programNumber:7,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:33,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:7,osc2On:1,osc2Half:0,vcfMod:1,osc1On:0,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:33,vcfFreq:31,vco2Freq:31,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:51,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:40,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:88,programGroup:'ABD',programNumber:8,vcfRel:63,lfoWave:1,vcaRel:63,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:63,filterFM:1,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:59,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:58,osc2PWM:0,osc1PWM:0,vcfSus:17,noise:1,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:21,osc1On:0,kbdTrack:0,vcfRes:55,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:58,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:2,vco2Freq:0,vco2PW:0,vco1Freq:58,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:89,programGroup:'CD',programNumber:1,vcfRel:26,lfoWave:1,vcaRel:24,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:24,filterFM:0,osc2FM:0,vcaDcy:63,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:38,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:35,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:43,osc1On:1,kbdTrack:1,vcfRes:36,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:50,sync:0,osc1FM:1,fmAmnt:8,pwmAmnt:0,portAmt:34,volume:63,osc2Detune:42,vcfFreq:26,vco2Freq:7,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:8,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:16,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:30,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:90,programGroup:'CD',programNumber:2,vcfRel:63,lfoWave:3,vcaRel:63,unison:1,lfoWave:3,lfoWaveTri:1,lfoWaveSqr:1,lfoWaveSnH:0,vcfDcy:63,filterFM:1,osc2FM:1,vcaDcy:63,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:40,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:1,osc1PWM:0,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:35,osc1On:0,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:49,vcaMod:1,fEnv:0,lfoFreq:9,sync:1,osc1FM:0,fmAmnt:63,pwmAmnt:53,portAmt:61,volume:63,osc2Detune:32,vcfFreq:0,vco2Freq:36,vco2PW:49,vco1Freq:10,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:0,trigLfoWaveTri:0,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:1,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:1,fmVibDelay:0,_180:1,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:91,programGroup:'CD',programNumber:3,vcfRel:0,lfoWave:1,vcaRel:38,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:39,osc2PWM:1,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:0,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:22,vcaMod:0,fEnv:0,lfoFreq:45,sync:0,osc1FM:1,fmAmnt:21,pwmAmnt:20,portAmt:0,volume:63,osc2Detune:43,vcfFreq:63,vco2Freq:12,vco2PW:22,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:54,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:92,programGroup:'CD',programNumber:4,vcfRel:40,lfoWave:5,vcaRel:38,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:48,filterFM:1,osc2FM:0,vcaDcy:1,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:18,osc1On:1,kbdTrack:1,vcfRes:46,pw1180:0,vco1180:0,oscPWM:54,vcaMod:0,fEnv:0,lfoFreq:12,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:34,vcfFreq:27,vco2Freq:7,vco2PW:54,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:63,pedalSustn:48,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:63,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:49,portQuant:1,portMatch:0,fmVibDelay:28,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:93,programGroup:'CD',programNumber:5,vcfRel:0,lfoWave:6,vcaRel:52,unison:0,lfoWave:6,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:1,vcfDcy:27,filterFM:0,osc2FM:1,vcaDcy:45,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:63,noise:0,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:5,osc1On:1,kbdTrack:1,vcfRes:42,pw1180:0,vco1180:0,oscPWM:0,vcaMod:1,fEnv:0,lfoFreq:29,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:63,portAmt:0,volume:47,osc2Detune:32,vcfFreq:0,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:94,programGroup:'CD',programNumber:6,vcfRel:63,lfoWave:2,vcaRel:35,unison:1,lfoWave:2,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:0,vcfDcy:17,filterFM:0,osc2FM:1,vcaDcy:1,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:41,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:17,vcaMod:1,fEnv:1,lfoFreq:63,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:63,portAmt:0,volume:63,osc2Detune:31,vcfFreq:0,vco2Freq:0,vco2PW:17,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:58,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:1,fmDlyInvert:1,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:1,voiceDetune:63,expoPort:0,constPort:0,bendAmount:24,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:95,programGroup:'CD',programNumber:7,vcfRel:0,lfoWave:1,vcaRel:0,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:19,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:18,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:1,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:32,vcfFreq:27,vco2Freq:12,vco2PW:0,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:96,programGroup:'CD',programNumber:8,vcfRel:56,lfoWave:1,vcaRel:63,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:46,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:63,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:9,osc2PWM:0,osc1PWM:0,vcfSus:63,noise:1,fourPole:0,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:28,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:63,volume:40,osc2Detune:32,vcfFreq:56,vco2Freq:46,vco2PW:28,vco1Freq:63,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:97,programGroup:'ACD',programNumber:1,vcfRel:38,lfoWave:2,vcaRel:31,unison:0,lfoWave:2,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:0,vcfDcy:54,filterFM:1,osc2FM:0,vcaDcy:42,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:44,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:63,noise:0,fourPole:0,vcaSus:0,osc2On:1,osc2Half:0,vcfMod:28,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:40,vcaMod:0,fEnv:0,lfoFreq:59,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:63,portAmt:63,volume:63,osc2Detune:32,vcfFreq:3,vco2Freq:0,vco2PW:40,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:63,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:98,programGroup:'ACD',programNumber:2,vcfRel:27,lfoWave:1,vcaRel:30,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:45,filterFM:0,osc2FM:0,vcaDcy:45,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:21,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:22,osc2PWM:1,osc1PWM:0,vcfSus:55,noise:0,fourPole:1,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:36,osc1On:1,kbdTrack:1,vcfRes:19,pw1180:0,vco1180:0,oscPWM:20,vcaMod:0,fEnv:0,lfoFreq:63,sync:1,osc1FM:1,fmAmnt:38,pwmAmnt:63,portAmt:57,volume:56,osc2Detune:51,vcfFreq:0,vco2Freq:23,vco2PW:20,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:57,pedalSustn:49,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:56,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:42,portQuant:0,portMatch:0,fmVibDelay:25,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:23,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:99,programGroup:'ACD',programNumber:3,vcfRel:37,lfoWave:5,vcaRel:34,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:32,filterFM:0,osc2FM:0,vcaDcy:28,osc2Wave:1,osc2WaveTri:1,osc2WaveSqr:0,vcfAtk:0,osc1Wave:1,osc1WaveTri:1,osc1WaveSqr:0,vcaAtk:38,osc2PWM:0,osc1PWM:0,vcfSus:25,noise:0,fourPole:0,vcaSus:40,osc2On:1,osc2Half:0,vcfMod:52,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:28,vcaMod:0,fEnv:0,lfoFreq:42,sync:0,osc1FM:1,fmAmnt:20,pwmAmnt:45,portAmt:0,volume:63,osc2Detune:41,vcfFreq:0,vco2Freq:12,vco2PW:28,vco1Freq:12,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:57,portBend:0,trigLfoWave:6,trigLfoWaveTri:0,trigLfoWaveSqr:1,trigLfoWaveSnH:1,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:2,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:100,programGroup:'ACD',programNumber:4,vcfRel:52,lfoWave:1,vcaRel:45,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:52,filterFM:0,osc2FM:0,vcaDcy:1,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:5,osc1On:1,kbdTrack:1,vcfRes:31,pw1180:0,vco1180:0,oscPWM:6,vcaMod:0,fEnv:1,lfoFreq:4,sync:0,osc1FM:0,fmAmnt:33,pwmAmnt:61,portAmt:0,volume:63,osc2Detune:32,vcfFreq:22,vco2Freq:0,vco2PW:6,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:63,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:59,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:0,portQuant:1,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:101,programGroup:'ACD',programNumber:5,vcfRel:54,lfoWave:5,vcaRel:48,unison:0,lfoWave:5,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:1,vcfDcy:43,filterFM:1,osc2FM:0,vcaDcy:43,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:53,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:32,osc2PWM:0,osc1PWM:0,vcfSus:37,noise:0,fourPole:0,vcaSus:21,osc2On:1,osc2Half:0,vcfMod:55,osc1On:1,kbdTrack:1,vcfRes:63,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:42,sync:0,osc1FM:0,fmAmnt:63,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:52,vcfFreq:0,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:10,pedalSustn:0,portBend:0,trigLfoWave:3,trigLfoWaveTri:1,trigLfoWaveSqr:1,trigLfoWaveSnH:0,fmVibRaise:20,lfoTrack:1,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:24,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:102,programGroup:'ACD',programNumber:6,vcfRel:57,lfoWave:1,vcaRel:52,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:48,filterFM:0,osc2FM:1,vcaDcy:1,osc2Wave:3,osc2WaveTri:1,osc2WaveSqr:1,vcfAtk:0,osc1Wave:3,osc1WaveTri:1,osc1WaveSqr:1,vcaAtk:0,osc2PWM:1,osc1PWM:1,vcfSus:0,noise:0,fourPole:1,vcaSus:63,osc2On:1,osc2Half:0,vcfMod:18,osc1On:1,kbdTrack:1,vcfRes:46,pw1180:0,vco1180:1,oscPWM:25,vcaMod:0,fEnv:0,lfoFreq:33,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:63,portAmt:19,volume:63,osc2Detune:33,vcfFreq:27,vco2Freq:0,vco2PW:25,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:63,lfoTrack:0,fmDlyInvert:1,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:63,_180:0,_90:0,pwmVibDelay:18,pwmDlyInvert:1,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:36,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:103,programGroup:'ACD',programNumber:7,vcfRel:52,lfoWave:1,vcaRel:48,unison:1,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:43,filterFM:0,osc2FM:0,vcaDcy:44,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:2,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:27,osc2PWM:0,osc1PWM:0,vcfSus:12,noise:1,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:15,osc1On:0,kbdTrack:1,vcfRes:51,pw1180:0,vco1180:0,oscPWM:21,vcaMod:0,fEnv:0,lfoFreq:42,sync:0,osc1FM:1,fmAmnt:35,pwmAmnt:42,portAmt:0,volume:42,osc2Detune:40,vcfFreq:0,vco2Freq:0,vco2PW:21,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:104,programGroup:'ACD',programNumber:8,vcfRel:63,lfoWave:6,vcaRel:63,unison:1,lfoWave:6,lfoWaveTri:0,lfoWaveSqr:1,lfoWaveSnH:1,vcfDcy:31,filterFM:1,osc2FM:1,vcaDcy:0,osc2Wave:2,osc2WaveTri:0,osc2WaveSqr:1,vcfAtk:0,osc1Wave:2,osc1WaveTri:0,osc1WaveSqr:1,vcaAtk:36,osc2PWM:0,osc1PWM:1,vcfSus:0,noise:1,fourPole:1,vcaSus:54,osc2On:0,osc2Half:1,vcfMod:63,osc1On:1,kbdTrack:1,vcfRes:0,pw1180:0,vco1180:0,oscPWM:63,vcaMod:1,fEnv:1,lfoFreq:34,sync:0,osc1FM:1,fmAmnt:63,pwmAmnt:63,portAmt:60,volume:51,osc2Detune:41,vcfFreq:17,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:0,portBend:1,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:4,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:63,portQuant:0,portMatch:0,fmVibDelay:12,_180:0,_90:0,pwmVibDelay:19,pwmDlyInvert:0,pwmQuant:1,voiceDetune:0,expoPort:0,constPort:0,bendAmount:63,lfoRateDelay:1,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:105,programGroup:'BCD',programNumber:1,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:106,programGroup:'BCD',programNumber:2,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:107,programGroup:'BCD',programNumber:3,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:108,programGroup:'BCD',programNumber:4,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:109,programGroup:'BCD',programNumber:5,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:110,programGroup:'BCD',programNumber:6,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:111,programGroup:'BCD',programNumber:7,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:112,programGroup:'BCD',programNumber:8,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:113,programGroup:'ABCD',programNumber:1,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:114,programGroup:'ABCD',programNumber:2,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:115,programGroup:'ABCD',programNumber:3,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:116,programGroup:'ABCD',programNumber:4,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:117,programGroup:'ABCD',programNumber:5,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:118,programGroup:'ABCD',programNumber:6,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:119,programGroup:'ABCD',programNumber:7,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+program = {programIndex:120,programGroup:'ABCD',programNumber:8,vcfRel:0,lfoWave:1,vcaRel:0,unison:0,lfoWave:1,lfoWaveTri:1,lfoWaveSqr:0,lfoWaveSnH:0,vcfDcy:0,filterFM:0,osc2FM:0,vcaDcy:0,osc2Wave:0,osc2WaveTri:0,osc2WaveSqr:0,vcfAtk:0,osc1Wave:0,osc1WaveTri:0,osc1WaveSqr:0,vcaAtk:63,osc2PWM:0,osc1PWM:0,vcfSus:0,noise:0,fourPole:0,vcaSus:63,osc2On:0,osc2Half:0,vcfMod:0,osc1On:0,kbdTrack:0,vcfRes:0,pw1180:0,vco1180:0,oscPWM:0,vcaMod:0,fEnv:0,lfoFreq:0,sync:0,osc1FM:0,fmAmnt:0,pwmAmnt:0,portAmt:0,volume:63,osc2Detune:31,vcfFreq:63,vco2Freq:0,vco2PW:0,vco1Freq:0,spare:0,legato:0,lfoTrigPoint:0,pedalSustn:40,portBend:0,trigLfoWave:1,trigLfoWaveTri:1,trigLfoWaveSqr:0,trigLfoWaveSnH:0,fmVibRaise:0,lfoTrack:0,fmDlyInvert:0,pwmVibRaise:0,portQuant:0,portMatch:0,fmVibDelay:0,_180:0,_90:0,pwmVibDelay:0,pwmDlyInvert:0,pwmQuant:0,voiceDetune:0,expoPort:0,constPort:0,bendAmount:0,lfoRateDelay:0,fmQuant:0,}
+appendProgramHeading(program);
+appendProgramTable(program);
+</script></body></html>

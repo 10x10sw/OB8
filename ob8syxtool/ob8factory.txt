@@ -1,0 +1,4441 @@
+ob8factory.syx
+=== Program A-1  (1) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:47  
+Modulation: 
+  LFO_Rate:38  Mod_Depth_1:23  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:12            Resonance:0           Mod:ulation:44  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:26  D:45  S:36  R:42  
+  VCA A:0   D:0   S:63  R:34  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:22  Attack_Mod_1:15  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:59  
+
+=== Program A-2  (2) ===
+Master: 
+  Program Volume:63  Bend:22
+Control: 
+  Portamento:48  
+  Unison:   
+  Osc2_Detune:21  
+Modulation: 
+  LFO_Rate:25  Mod_Depth_1:42  Mod_Depth_2:26  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:33  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:59  D:23  S:63  R:43  
+  VCA A:13  D:0   S:63  R:50  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:*  LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:44  LFO_Trig_Point:15  
+  Delay_Mod_2:0  Attack_Mod_2:50   Pedal_Release:0  
+
+=== Program A-3  (3) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:50  
+Modulation: 
+  LFO_Rate:42  Mod_Depth_1:25  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:43   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:18            Resonance:0           Mod:ulation:8   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:51  D:52  S:28  R:52  
+  VCA A:41  D:0   S:63  R:39  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:53  
+
+=== Program A-4  (4) ===
+Master: 
+  Program Volume:51  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:42  
+Modulation: 
+  LFO_Rate:41  Mod_Depth_1:23  Mod_Depth_2:60  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:24  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:26  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:35  S:0   R:41  
+  VCA A:0   D:1   S:63  R:46  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:12  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:16  
+
+=== Program A-5  (5) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:30  
+Modulation: 
+  LFO_Rate:30  Mod_Depth_1:33  Mod_Depth_2:43  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:48   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:18            Resonance:63          Mod:ulation:5   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:63   Pedal_Release:63  
+
+=== Program A-6  (6) ===
+Master: 
+  Program Volume:63  Bend:21
+Control: 
+  Portamento:33  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:46  Mod_Depth_1:29  Mod_Depth_2:33  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:39   Osc2_Frq:24  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:2   
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:37  D:26  S:0   R:56  
+  VCA A:26  D:18  S:63  R:34  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:44  LFO_Trig_Point:34  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:58  
+
+=== Program A-7  (7) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:29  
+Modulation: 
+  LFO_Rate:51  Mod_Depth_1:63  Mod_Depth_2:8   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:31   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:39            Resonance:0           Mod:ulation:19  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:34  S:0   R:50  
+  VCA A:0   D:0   S:63  R:43  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:*   LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program A-8  (8) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:53  
+  Unison:   
+  Osc2_Detune:42  
+Modulation: 
+  LFO_Rate:35  Mod_Depth_1:61  Mod_Depth_2:56  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:17   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:15            Resonance:0           Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:10  S:0   R:33  
+  VCA A:0   D:1   S:63  R:52  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:*     Invert_2:   
+  Trig_Wave_S/H:*   LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:30  Attack_Mod_1:63  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:61   Pedal_Release:0  
+
+=== Program B-1  (9) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:39  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:58   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:*  F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:35  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:27  D:35  S:9   R:29  
+  VCA A:3   D:6   S:48  R:31  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:55  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:35   Pedal_Release:47  
+
+=== Program B-2  (10) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:47  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:41   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:25            Resonance:0           Mod:ulation:35  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:29  S:11  R:7   
+  VCA A:0   D:49  S:0   R:10  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:41  
+
+=== Program B-3  (11) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:47  
+Modulation: 
+  LFO_Rate:44  Mod_Depth_1:16  Mod_Depth_2:36  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:22   Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:26            Resonance:0           Mod:ulation:26  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:40  D:43  S:63  R:47  
+  VCA A:37  D:44  S:63  R:55  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program B-4  (12) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:44  
+Modulation: 
+  LFO_Rate:21  Mod_Depth_1:26  Mod_Depth_2:53  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:27   Osc2_Frq:43  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:26          Mod:ulation:29  
+  Osc1_On:*  Osc2_Half:*  Osc2_Full:   Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:45  S:0   R:59  
+  VCA A:0   D:47  S:0   R:34  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:56  
+
+=== Program B-5  (13) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:17  Mod_Depth_1:8   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:55   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:28          Mod:ulation:29  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:63  R:47  
+  VCA A:31  D:0   S:63  R:38  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:40   Pedal_Release:60  
+
+=== Program B-6  (14) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:46  
+Modulation: 
+  LFO_Rate:47  Mod_Depth_1:35  Mod_Depth_2:44  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:37   Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:49            Resonance:63          Mod:ulation:6   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:43  D:34  S:42  R:54  
+  VCA A:37  D:54  S:42  R:41  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:*  Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:53  
+
+=== Program B-7  (15) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:36  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:33  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:21          Mod:ulation:42  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:47  S:0   R:40  
+  VCA A:0   D:1   S:63  R:38  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:*  
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:59  LFO_Trig_Point:63  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:57  
+
+=== Program B-8  (16) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:48  
+Modulation: 
+  LFO_Rate:31  Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:57   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:14            Resonance:38          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:14  S:0   R:0   
+  VCA A:26  D:29  S:22  R:22  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:3  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:49  
+
+=== Program AB-1  (17) ===
+Master: 
+  Program Volume:42  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:44  Mod_Depth_1:26  Mod_Depth_2:51  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:8    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:*  F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:49            Resonance:0           Mod:ulation:15  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:32  D:40  S:9   R:31  
+  VCA A:29  D:0   S:63  R:26  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:51  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program AB-2  (18) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:25  
+  Unison:*  
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:48  Mod_Depth_1:35  Mod_Depth_2:8   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:37   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:15            Resonance:31          Mod:ulation:21  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:32  S:11  R:17  
+  VCA A:0   D:53  S:15  R:20  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:*  PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:*  Equal_Time:*  Exponential:   
+Envelopes: 
+  Delay_Mod_1:16  Attack_Mod_1:28  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:47  
+
+=== Program AB-3  (19) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:46  
+Modulation: 
+  LFO_Rate:44  Mod_Depth_1:30  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:29   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:21            Resonance:0           Mod:ulation:18  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:18  D:6   S:63  R:33  
+  VCA A:40  D:63  S:63  R:36  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:48  
+
+=== Program AB-4  (20) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:20  Mod_Depth_1:0   Mod_Depth_2:31  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:38   Osc2_Frq:35  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:56          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:*  Osc2_Full:   Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:52  S:0   R:25  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:54  
+
+=== Program AB-5  (21) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:23  Mod_Depth_1:17  Mod_Depth_2:51  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:26   Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:20            Resonance:63          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:0   S:63  R:7   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:*  Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program AB-6  (22) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:41  
+Modulation: 
+  LFO_Rate:12  Mod_Depth_1:47  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:55   Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:39            Resonance:0           Mod:ulation:4   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:26  D:35  S:0   R:35  
+  VCA A:24  D:36  S:63  R:35  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:57  
+
+=== Program AB-7  (23) ===
+Master: 
+  Program Volume:47  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:11  Mod_Depth_1:63  Mod_Depth_2:8   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:44   Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:22            Resonance:63          Mod:ulation:58  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:23  D:59  S:0   R:57  
+  VCA A:0   D:0   S:63  R:60  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:*   Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:*   LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:*  PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program AB-8  (24) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:47  
+Modulation: 
+  LFO_Rate:35  Mod_Depth_1:43  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:19            Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:63  R:55  
+  VCA A:0   D:44  S:0   R:57  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program C-1  (25) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:36  
+Modulation: 
+  LFO_Rate:50  Mod_Depth_1:8   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:*  F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:51  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:24  D:24  S:34  R:26  
+  VCA A:0   D:63  S:0   R:24  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:16  Attack_Mod_1:8  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program C-2  (26) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:45  
+Modulation: 
+  LFO_Rate:21  Mod_Depth_1:21  Mod_Depth_2:31  
+  Wave_Tri:       Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:*      Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:54   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:63          Mod:ulation:47  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:44  S:11  R:57  
+  VCA A:0   D:0   S:47  R:14  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:53  
+
+=== Program C-3  (27) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:47  
+Modulation: 
+  LFO_Rate:43  Mod_Depth_1:24  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:36            Resonance:0           Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:40  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:3  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:52  
+
+=== Program C-4  (28) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:42  
+Modulation: 
+  LFO_Rate:43  Mod_Depth_1:24  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:24  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:46  D:51  S:13  R:46  
+  VCA A:0   D:33  S:38  R:42  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:2  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program C-5  (29) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:42  
+Modulation: 
+  LFO_Rate:49  Mod_Depth_1:29  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:24                       Pulse_Width:26   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:63            Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:63  R:0   
+  VCA A:0   D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program C-6  (30) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:41  
+Modulation: 
+  LFO_Rate:43  Mod_Depth_1:29  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:50   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:*  F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:25            Resonance:63          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:63  R:0   
+  VCA A:24  D:0   S:63  R:34  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:47  
+
+=== Program C-7  (31) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:46  
+Modulation: 
+  LFO_Rate:41  Mod_Depth_1:29  Mod_Depth_2:49  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:24   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:8             Resonance:34          Mod:ulation:15  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:30  S:2   R:18  
+  VCA A:0   D:0   S:63  R:17  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:50  
+
+=== Program C-8  (32) ===
+Master: 
+  Program Volume:51  Bend:30
+Control: 
+  Portamento:63  
+  Unison:   
+  Osc2_Detune:0  
+Modulation: 
+  LFO_Rate:1   Mod_Depth_1:63  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:14                       Pulse_Width:14   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:22            Resonance:0           Mod:ulation:14  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:14  D:14  S:14  R:14  
+  VCA A:0   D:0   S:63  R:50  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:*  
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:14  Attack_Mod_2:14   Pedal_Release:0  
+
+=== Program AC-1  (33) ===
+Master: 
+  Program Volume:53  Bend:22
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:45  
+Modulation: 
+  LFO_Rate:44  Mod_Depth_1:26  Mod_Depth_2:45  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:13   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:47            Resonance:0           Mod:ulation:25  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:22  D:36  S:48  R:40  
+  VCA A:21  D:37  S:63  R:38  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:25  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:53  LFO_Trig_Point:23  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:54  
+
+=== Program AC-2  (34) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:15  
+  Unison:*  
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:48  Mod_Depth_1:42  Mod_Depth_2:8   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:21   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:8             Resonance:0           Mod:ulation:25  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:19  S:11  R:17  
+  VCA A:0   D:46  S:0   R:20  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:*  PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:*  Equal_Time:*  Exponential:   
+Envelopes: 
+  Delay_Mod_1:16  Attack_Mod_1:28  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:52  
+
+=== Program AC-3  (35) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:48  
+Modulation: 
+  LFO_Rate:35  Mod_Depth_1:4   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:59            Resonance:0           Mod:ulation:23  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:9   D:29  S:26  R:52  
+  VCA A:37  D:43  S:63  R:43  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:52  
+
+=== Program AC-4  (36) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:48  
+Modulation: 
+  LFO_Rate:47  Mod_Depth_1:5   Mod_Depth_2:56  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:*  F-Env:*  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:35  
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:55  S:26  R:34  
+  VCA A:0   D:43  S:23  R:33  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:61  
+
+=== Program AC-5  (37) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:46  
+Modulation: 
+  LFO_Rate:29  Mod_Depth_1:0   Mod_Depth_2:53  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:23            Resonance:63          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:36  D:0   S:63  R:39  
+  VCA A:35  D:0   S:63  R:26  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program AC-6  (38) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:0  
+Modulation: 
+  LFO_Rate:47  Mod_Depth_1:38  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:33   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:5   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:30  D:0   S:63  R:0   
+  VCA A:20  D:0   S:63  R:22  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:55  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program AC-7  (39) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:47  Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:24   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:53            Resonance:0           Mod:ulation:21  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:   Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:25  S:14  R:27  
+  VCA A:0   D:36  S:11  R:41  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:57  
+
+=== Program AC-8  (40) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:63  Mod_Depth_1:39  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:*  F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:18            Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:40  S:25  R:28  
+  VCA A:31  D:43  S:21  R:38  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:59  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program BC-1  (41) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:50  
+Modulation: 
+  LFO_Rate:47  Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:30            Resonance:0           Mod:ulation:36  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:23  D:32  S:13  R:30  
+  VCA A:7   D:0   S:63  R:16  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program BC-2  (42) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:50  
+Modulation: 
+  LFO_Rate:47  Mod_Depth_1:0   Mod_Depth_2:5   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:33   Osc2_Frq:10  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:*  F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:59  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:45  S:29  R:40  
+  VCA A:0   D:41  S:0   R:31  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:53  
+
+=== Program BC-3  (43) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:45  
+Modulation: 
+  LFO_Rate:48  Mod_Depth_1:22  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:55  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:21  D:32  S:63  R:40  
+  VCA A:37  D:0   S:63  R:45  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:2  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program BC-4  (44) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:30  
+Modulation: 
+  LFO_Rate:21  Mod_Depth_1:26  Mod_Depth_2:61  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:27   Osc2_Frq:43  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:3             Resonance:0           Mod:ulation:51  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:35  S:0   R:59  
+  VCA A:0   D:53  S:0   R:24  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:2  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:51  
+
+=== Program BC-5  (45) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:30  
+Modulation: 
+  LFO_Rate:33  Mod_Depth_1:22  Mod_Depth_2:53  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:16            Resonance:50          Mod:ulation:3   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:37  D:0   S:63  R:17  
+  VCA A:7   D:7   S:63  R:9   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:*  Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program BC-6  (46) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:22  Mod_Depth_2:49  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:27            Resonance:0           Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:   Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:10  R:0   
+  VCA A:25  D:63  S:0   R:28  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:14  Attack_Mod_2:15   Pedal_Release:54  
+
+=== Program BC-7  (47) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:43  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:22  Mod_Depth_2:49  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:7  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:32            Resonance:0           Mod:ulation:36  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:38  S:0   R:40  
+  VCA A:0   D:0   S:45  R:52  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program BC-8  (48) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:31  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:44            Resonance:0           Mod:ulation:48  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:30  S:36  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:16  Attack_Mod_1:17  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:48  
+
+=== Program ABC-1  (49) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:40  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:14  Mod_Depth_2:49  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:25            Resonance:0           Mod:ulation:21  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:26  D:26  S:21  R:23  
+  VCA A:0   D:0   S:63  R:24  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:2  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:52  
+
+=== Program ABC-2  (50) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:40  
+Modulation: 
+  LFO_Rate:41  Mod_Depth_1:14  Mod_Depth_2:49  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:48                       Pulse_Width:0    Osc2_Frq:43  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:30          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:39  S:63  R:45  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:3  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:32  
+
+=== Program ABC-3  (51) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:23  
+Modulation: 
+  LFO_Rate:37  Mod_Depth_1:26  Mod_Depth_2:54  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:45            Resonance:0           Mod:ulation:14  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:43  D:32  S:49  R:63  
+  VCA A:53  D:0   S:63  R:42  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:52  LFO_Trig_Point:0  
+  Delay_Mod_2:2  Attack_Mod_2:63   Pedal_Release:60  
+
+=== Program ABC-4  (52) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:1  
+Modulation: 
+  LFO_Rate:19  Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:25   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:33            Resonance:0           Mod:ulation:6   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:45  S:44  R:46  
+  VCA A:0   D:49  S:0   R:21  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:1  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:49  
+
+=== Program ABC-5  (53) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:29  
+Modulation: 
+  LFO_Rate:23  Mod_Depth_1:63  Mod_Depth_2:53  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:46                       Pulse_Width:29   Osc2_Frq:39  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:39            Resonance:58          Mod:ulation:19  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:34  S:0   R:63  
+  VCA A:0   D:0   S:63  R:50  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:*  LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:58   Pedal_Release:0  
+
+=== Program ABC-6  (54) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:51  
+Modulation: 
+  LFO_Rate:46  Mod_Depth_1:30  Mod_Depth_2:49  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:25   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:9             Resonance:63          Mod:ulation:41  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:43  D:46  S:0   R:35  
+  VCA A:0   D:47  S:0   R:35  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:55  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program ABC-7  (55) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:51  
+Modulation: 
+  LFO_Rate:46  Mod_Depth_1:30  Mod_Depth_2:57  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:1             Resonance:63          Mod:ulation:1   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:47  S:0   R:35  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:51  
+
+=== Program ABC-8  (56) ===
+Master: 
+  Program Volume:48  Bend:24
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:17  Mod_Depth_1:63  Mod_Depth_2:51  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:8    Osc2_Frq:14  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:*  F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:52            Resonance:35          Mod:ulation:45  
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:37  S:4   R:6   
+  VCA A:0   D:0   S:63  R:8   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:21  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:58  
+
+=== Program D-1  (57) ===
+Master: 
+  Program Volume:63  Bend:24
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:47  
+Modulation: 
+  LFO_Rate:18  Mod_Depth_1:0   Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:3             Resonance:19          Mod:ulation:19  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:36  D:0   S:63  R:50  
+  VCA A:22  D:0   S:63  R:42  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:49   Pedal_Release:61  
+
+=== Program D-2  (58) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:48  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:63   Osc2_Frq:7  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:45            Resonance:0           Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:0   S:63  R:53  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:*  Quantize:*  
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program D-3  (59) ===
+Master: 
+  Program Volume:44  Bend:0
+Control: 
+  Portamento:49  
+  Unison:   
+  Osc2_Detune:29  
+Modulation: 
+  LFO_Rate:44  Mod_Depth_1:15  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:7  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:8             Resonance:63          Mod:ulation:54  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:25  D:40  S:46  R:48  
+  VCA A:0   D:0   S:63  R:54  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:3  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program D-4  (60) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:56  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:27   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:44            Resonance:0           Mod:ulation:24  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:9   D:16  S:0   R:0   
+  VCA A:0   D:37  S:0   R:28  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:16  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:43  
+
+=== Program D-5  (61) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:39  Mod_Depth_1:60  Mod_Depth_2:63  
+  Wave_Tri:       Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:51          Mod:ulation:54  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:49  S:28  R:51  
+  VCA A:0   D:0   S:63  R:53  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program D-6  (62) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:21  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:17   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:58  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:55  R:4   
+  VCA A:20  D:0   S:63  R:12  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:61  
+
+=== Program D-7  (63) ===
+Master: 
+  Program Volume:47  Bend:0
+Control: 
+  Portamento:56  
+  Unison:*  
+  Osc2_Detune:34  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:63  R:63  
+  VCA A:0   D:0   S:63  R:55  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program D-8  (64) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:59  Mod_Depth_1:51  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:5             Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:54  D:57  S:0   R:59  
+  VCA A:0   D:0   S:63  R:54  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:1  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:56  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program AD-1  (65) ===
+Master: 
+  Program Volume:56  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:45  
+Modulation: 
+  LFO_Rate:43  Mod_Depth_1:32  Mod_Depth_2:43  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:26   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:55            Resonance:0           Mod:ulation:25  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:49  D:48  S:31  R:49  
+  VCA A:0   D:0   S:63  R:42  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:25  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:13  Attack_Mod_1:39  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:49  
+
+=== Program AD-2  (66) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:58   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:54            Resonance:0           Mod:ulation:19  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:30  S:0   R:38  
+  VCA A:0   D:0   S:63  R:45  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:47  
+
+=== Program AD-3  (67) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:49  
+Modulation: 
+  LFO_Rate:51  Mod_Depth_1:28  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:46            Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:27  D:34  S:28  R:38  
+  VCA A:34  D:0   S:63  R:34  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:55  
+
+=== Program AD-4  (68) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:30  
+Modulation: 
+  LFO_Rate:63  Mod_Depth_1:43  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:23   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:33            Resonance:0           Mod:ulation:47  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:43  S:5   R:0   
+  VCA A:0   D:48  S:0   R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:51  
+
+=== Program AD-5  (69) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:43  Mod_Depth_1:0   Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:63   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:8             Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:55  S:0   R:49  
+  VCA A:0   D:0   S:63  R:49  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program AD-6  (70) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:25  Mod_Depth_1:49  Mod_Depth_2:26  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:39   Osc2_Frq:36  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:38            Resonance:0           Mod:ulation:33  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:35  
+  VCA A:21  D:18  S:63  R:43  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:*  
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:34  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:46  
+
+=== Program AD-7  (71) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:43  Mod_Depth_1:22  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:6    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:46            Resonance:0           Mod:ulation:5   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:38  S:0   R:23  
+  VCA A:0   D:0   S:63  R:32  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:51  
+
+=== Program AD-8  (72) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:51  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:2             Resonance:63          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:*  4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:34  D:0   S:63  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:*  PWM:*  Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program BD-1  (73) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:55  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:51  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:       Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:22            Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:49  S:16  R:49  
+  VCA A:0   D:0   S:63  R:52  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:*  
+Filter: 
+  Portamento: Legato:   Equal_Time:*  Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program BD-2  (74) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:51  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:24                       Pulse_Width:0    Osc2_Frq:16  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:25            Resonance:63          Mod:ulation:47  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:5   D:7   S:0   R:0   
+  VCA A:15  D:31  S:0   R:33  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:52  
+
+=== Program BD-3  (75) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:23  
+Modulation: 
+  LFO_Rate:31  Mod_Depth_1:26  Mod_Depth_2:54  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:7             Resonance:0           Mod:ulation:17  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:43  D:32  S:49  R:63  
+  VCA A:53  D:0   S:63  R:42  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:*  LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:52  LFO_Trig_Point:0  
+  Delay_Mod_2:2  Attack_Mod_2:63   Pedal_Release:62  
+
+=== Program BD-4  (76) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:40  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:*  F-Env:*  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:26            Resonance:63          Mod:ulation:28  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:30  D:41  S:0   R:27  
+  VCA A:0   D:40  S:0   R:28  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:56  
+
+=== Program BD-5  (77) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:41  
+Modulation: 
+  LFO_Rate:22  Mod_Depth_1:3   Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:8             Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:62  D:0   S:63  R:41  
+  VCA A:0   D:50  S:63  R:56  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:*  Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BD-6  (78) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:49  Mod_Depth_1:49  Mod_Depth_2:59  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:24                       Pulse_Width:0    Osc2_Frq:24  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:40            Resonance:63          Mod:ulation:15  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:25  S:0   R:37  
+  VCA A:9   D:0   S:63  R:46  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program BD-7  (79) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:42  Mod_Depth_1:0   Mod_Depth_2:56  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:13   Osc2_Frq:29  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:26            Resonance:63          Mod:ulation:31  
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:30  D:25  S:11  R:30  
+  VCA A:0   D:46  S:0   R:18  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program BD-8  (80) ===
+Master: 
+  Program Volume:32  Bend:48
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:14  Mod_Depth_1:35  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:41   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:48          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:43  D:63  S:63  R:59  
+  VCA A:0   D:0   S:63  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:63  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program ABD-1  (81) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:25  Mod_Depth_1:62  Mod_Depth_2:56  
+  Wave_Tri:       Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:24  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:*  F-Env:*  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:58            Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:49  D:16  S:63  R:37  
+  VCA A:0   D:0   S:63  R:31  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:27  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:63   Pedal_Release:63  
+
+=== Program ABD-2  (82) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:46  
+Modulation: 
+  LFO_Rate:34  Mod_Depth_1:0   Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:44            Resonance:63          Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:43  S:0   R:63  
+  VCA A:0   D:18  S:44  R:46  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:56  
+
+=== Program ABD-3  (83) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:44  Mod_Depth_1:11  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:18            Resonance:0           Mod:ulation:49  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:19  D:49  S:16  R:38  
+  VCA A:35  D:47  S:25  R:31  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:48  
+
+=== Program ABD-4  (84) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:46  
+Modulation: 
+  LFO_Rate:41  Mod_Depth_1:40  Mod_Depth_2:57  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:28   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:9             Resonance:63          Mod:ulation:21  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:39  R:63  
+  VCA A:18  D:26  S:63  R:46  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:*  180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program ABD-5  (85) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:41  
+Modulation: 
+  LFO_Rate:2   Mod_Depth_1:63  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:53            Resonance:47          Mod:ulation:21  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:25  S:0   R:63  
+  VCA A:20  D:36  S:63  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program ABD-6  (86) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:49  Mod_Depth_1:10  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:47   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:24            Resonance:0           Mod:ulation:63  
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:36  D:0   S:39  R:0   
+  VCA A:0   D:0   S:63  R:41  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:58  
+
+=== Program ABD-7  (87) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:31  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:31            Resonance:63          Mod:ulation:1   
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:33  S:7   R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:40   Pedal_Release:51  
+
+=== Program ABD-8  (88) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:58  Mod_Depth_1:63  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:58                       Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:2             Resonance:55          Mod:ulation:21  
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:*  4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:59  D:63  S:17  R:63  
+  VCA A:58  D:0   S:63  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program CD-1  (89) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:34  
+  Unison:*  
+  Osc2_Detune:42  
+Modulation: 
+  LFO_Rate:50  Mod_Depth_1:8   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:7  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:26            Resonance:36          Mod:ulation:43  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:38  D:24  S:35  R:26  
+  VCA A:0   D:63  S:0   R:24  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:30  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:16  Attack_Mod_1:8  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program CD-2  (90) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:61  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:9   Mod_Depth_1:63  Mod_Depth_2:53  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:10                       Pulse_Width:49   Osc2_Frq:36  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:*  F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:63          Mod:ulation:35  
+  Osc1_On:   Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:40  D:63  S:63  R:63  
+  VCA A:0   D:63  S:63  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:*  LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:*  Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:*  Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program CD-3  (91) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:43  
+Modulation: 
+  LFO_Rate:45  Mod_Depth_1:21  Mod_Depth_2:20  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:22   Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:39  D:0   S:63  R:38  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:54  
+
+=== Program CD-4  (92) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:34  
+Modulation: 
+  LFO_Rate:12  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:54   Osc2_Frq:7  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:27            Resonance:46          Mod:ulation:18  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:48  S:0   R:40  
+  VCA A:0   D:1   S:63  R:38  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:*  
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:28  Attack_Mod_1:63  LFO_Trig_Point:63  
+  Delay_Mod_2:0  Attack_Mod_2:49   Pedal_Release:48  
+
+=== Program CD-5  (93) ===
+Master: 
+  Program Volume:47  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:29  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:       Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:42          Mod:ulation:5   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:27  S:63  R:0   
+  VCA A:0   D:45  S:63  R:52  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:63   Pedal_Release:0  
+
+=== Program CD-6  (94) ===
+Master: 
+  Program Volume:63  Bend:24
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:63  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:       Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:17   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:*  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:   
+Envelopes: 
+  VCF A:41  D:17  S:63  R:63  
+  VCA A:0   D:1   S:63  R:35  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:63  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:*  
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:*  LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:58  
+
+=== Program CD-7  (95) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:0    Osc2_Frq:12  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:*  F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:27            Resonance:63          Mod:ulation:18  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:0   D:19  S:0   R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program CD-8  (96) ===
+Master: 
+  Program Volume:40  Bend:0
+Control: 
+  Portamento:63  
+  Unison:*  
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:63                       Pulse_Width:28   Osc2_Frq:46  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:56            Resonance:63          Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:*  4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:63  D:46  S:63  R:56  
+  VCA A:9   D:0   S:63  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program ACD-1  (97) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:63  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:59  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:       Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:*      Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:40   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:3             Resonance:63          Mod:ulation:28  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:44  D:54  S:63  R:38  
+  VCA A:0   D:42  S:0   R:31  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:63  
+
+=== Program ACD-2  (98) ===
+Master: 
+  Program Volume:56  Bend:23
+Control: 
+  Portamento:57  
+  Unison:*  
+  Osc2_Detune:51  
+Modulation: 
+  LFO_Rate:63  Mod_Depth_1:38  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:20   Osc2_Frq:23  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:*  F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:19          Mod:ulation:36  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:   Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:21  D:45  S:55  R:27  
+  VCA A:22  D:45  S:63  R:30  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:25  Attack_Mod_1:56  LFO_Trig_Point:57  
+  Delay_Mod_2:0  Attack_Mod_2:42   Pedal_Release:49  
+
+=== Program ACD-3  (99) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:41  
+Modulation: 
+  LFO_Rate:42  Mod_Depth_1:20  Mod_Depth_2:45  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:12                       Pulse_Width:28   Osc2_Frq:12  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:0             Resonance:0           Mod:ulation:52  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:32  S:25  R:37  
+  VCA A:38  D:28  S:40  R:34  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:2  
+Modulation: 
+  Trig_Wave_Tri:   Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:*   LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:57  
+
+=== Program ACD-4  (100) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:32  
+Modulation: 
+  LFO_Rate:4   Mod_Depth_1:33  Mod_Depth_2:61  
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:6    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:22            Resonance:31          Mod:ulation:5   
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:52  S:0   R:52  
+  VCA A:0   D:1   S:63  R:45  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:*  
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:59  LFO_Trig_Point:63  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ACD-5  (101) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:52  
+Modulation: 
+  LFO_Rate:42  Mod_Depth_1:63  Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:63          Mod:ulation:55  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:53  D:43  S:37  R:54  
+  VCA A:32  D:43  S:21  R:48  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:*    Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:*  LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:24  Attack_Mod_1:20  LFO_Trig_Point:10  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program ACD-6  (102) ===
+Master: 
+  Program Volume:63  Bend:36
+Control: 
+  Portamento:19  
+  Unison:   
+  Osc2_Detune:33  
+Modulation: 
+  LFO_Rate:33  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:       Osc2_Frq:*      Osc2_PWM:*  
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:25   Osc2_Frq:0  
+  Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:*  Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:27            Resonance:46          Mod:ulation:18  
+  Osc1_On:*  Osc2_Half:   Osc2_Full:*  Noise:   4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:48  S:0   R:57  
+  VCA A:0   D:1   S:63  R:52  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:*     Invert_2:*  
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:*  PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:63  Attack_Mod_1:63  LFO_Trig_Point:0  
+  Delay_Mod_2:18  Attack_Mod_2:63   Pedal_Release:40  
+
+=== Program ACD-7  (103) ===
+Master: 
+  Program Volume:42  Bend:0
+Control: 
+  Portamento:0  
+  Unison:*  
+  Osc2_Detune:40  
+Modulation: 
+  LFO_Rate:42  Mod_Depth_1:35  Mod_Depth_2:42  
+  Wave_Tri:*      Osc1_Frq:*      Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:21   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:0             Resonance:51          Mod:ulation:15  
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:*  4_Pole:   Kbd_Track:*  
+Envelopes: 
+  VCF A:2   D:43  S:12  R:52  
+  VCA A:27  D:44  S:63  R:48  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:0  
+
+=== Program ACD-8  (104) ===
+Master: 
+  Program Volume:51  Bend:63
+Control: 
+  Portamento:60  
+  Unison:*  
+  Osc2_Detune:41  
+Modulation: 
+  LFO_Rate:34  Mod_Depth_1:63  Mod_Depth_2:63  
+  Wave_Tri:       Osc1_Frq:*      Osc1_PWM:*  
+  Wave_Sqr:*      Osc2_Frq:*      Osc2_PWM:   
+  Wave_S/H:*    Filter_Frq:*    Volume_Mod:*  
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:63   Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  Sync:   F-Env:*  Osc1_Wave_Tri:   Osc1_Wave_Sqr:*  
+Filter: 
+  Frequency:17            Resonance:0           Mod:ulation:63  
+  Osc1_On:*  Osc2_Half:*  Osc2_Full:   Noise:*  4_Pole:*  Kbd_Track:*  
+Envelopes: 
+  VCF A:0   D:31  S:0   R:63  
+  VCA A:36  D:0   S:54  R:63  
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:*  
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:*  
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:*  
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:12  Attack_Mod_1:4  LFO_Trig_Point:0  
+  Delay_Mod_2:19  Attack_Mod_2:63   Pedal_Release:0  
+
+=== Program BCD-1  (105) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-2  (106) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-3  (107) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-4  (108) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-5  (109) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-6  (110) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-7  (111) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program BCD-8  (112) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-1  (113) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-2  (114) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-3  (115) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-4  (116) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-5  (117) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-6  (118) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-7  (119) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
+=== Program ABCD-8  (120) ===
+Master: 
+  Program Volume:63  Bend:0
+Control: 
+  Portamento:0  
+  Unison:   
+  Osc2_Detune:31  
+Modulation: 
+  LFO_Rate:0   Mod_Depth_1:0   Mod_Depth_2:0   
+  Wave_Tri:*      Osc1_Frq:       Osc1_PWM:   
+  Wave_Sqr:       Osc2_Frq:       Osc2_PWM:   
+  Wave_S/H:     Filter_Frq:     Volume_Mod:   
+Oscillators: 
+  Osc1_Frq:0                        Pulse_Width:0    Osc2_Frq:0  
+  Osc1_Wave_Tri:   Osc1_Wave_Sqr:   Sync:   F-Env:   Osc1_Wave_Tri:   Osc1_Wave_Sqr:   
+Filter: 
+  Frequency:63            Resonance:0           Mod:ulation:0   
+  Osc1_On:   Osc2_Half:   Osc2_Full:   Noise:   4_Pole:   Kbd_Track:   
+Envelopes: 
+  VCF A:0   D:0   S:0   R:0   
+  VCA A:63  D:0   S:63  R:0   
+-- Page 2 -- 
+Control: 
+  Portamento_Bend:   
+  Voice_Detune:0  
+Modulation: 
+  Trig_Wave_Tri:*  Quantize_1:    Quantize_2:   
+  Trig_Wave_Sqr:     Invert_1:      Invert_2:   
+  Trig_Wave_S/H:    LFO_Track:   LFO_Env_Mod:   
+Oscillators: 
+  LFO Phase: 90:   180:   Osc1_LFO_Mod_Invert: Freq:   PWM:   Portamento: Match:   Quantize:   
+Filter: 
+  Portamento: Legato:   Equal_Time:   Exponential:   
+Envelopes: 
+  Delay_Mod_1:0  Attack_Mod_1:0  LFO_Trig_Point:0  
+  Delay_Mod_2:0  Attack_Mod_2:0   Pedal_Release:40  
+
