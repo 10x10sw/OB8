@@ -3,7 +3,7 @@
 ## What This Script Does
 This Python script prints the program parameters for
 Oberheim OB-8 programs from system exclusive dumps created by the OB-8 firmware B5, as documented in the OB-8 service manual August 15, 1984.
-It will print the parameters as text or as a pretty HTML (see [ob8factory.html](../blob/main/ob8factory.html)).
+It will print the parameters as text or as a pretty HTML (see [ob8factory.html](../../../blob/main/ob8syxtool/ob8factory.html)).
 
 ## Why This Script
 I wanted to understand the OB-8 factory preset programs and document my own programs. I could not find another free way to do this.
