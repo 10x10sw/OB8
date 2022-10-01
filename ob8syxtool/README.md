@@ -33,3 +33,11 @@ optional arguments:
                         output file
   --html                output as pretty html
 ```
+
+## Fonts
+Oberheim used Handel Gothic for the control labels on the front panel, and Didoni for the large OB-8 model name and Oberheim logo.
+The HTML will use Handel Gothic if it is installed on your system.
+
+## Sample Output
+The HTML makes it easy to dial in the patch on your own OB-8:
+![](samples/sample_html_a1.png?raw=true)
